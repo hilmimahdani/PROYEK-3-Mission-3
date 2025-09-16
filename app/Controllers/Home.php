@@ -17,7 +17,6 @@ class Home extends BaseController
             'username' => session()->get('username')
         ];
 
-        // Kalau role student → ambil identitas dari tabel students
         if ($data['role'] === 'student') {
             $studentModel = new StudentModel();
             $student = $studentModel->where('user_id', session()->get('user_id'))->first();
